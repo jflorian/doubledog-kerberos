@@ -27,7 +27,7 @@ class kerberos {
 
     file { '/etc/krb5.conf':
         group   => 'root',
-        mode    => '0640',
+        mode    => '0644',
         owner   => 'root',
         require => Package['krb5-libs'],
         seluser => 'system_u',
