@@ -25,6 +25,10 @@ class kerberos {
         ensure  => installed,
     }
 
+    package { 'pam_krb5':
+        ensure  => installed,
+    }
+
     file { '/etc/krb5.conf':
         group   => 'root',
         mode    => '0644',
