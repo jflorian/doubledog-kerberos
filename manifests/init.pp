@@ -1,4 +1,4 @@
-# modules/server/manifests/classes/kerberos.pp
+# modules/kerberos/manifests/init.pp
 #
 # Synopsis:
 #       Configures a host for participation in a Kerberos realm.

@@ -1,4 +1,4 @@
-# modules/kerberos/manifests/classes/server.pp
+# modules/kerberos/manifests/server.pp
 #
 # Synopsis:
 #       Configures a host as a Kerberos KDC server.
