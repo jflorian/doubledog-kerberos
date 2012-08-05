@@ -25,7 +25,6 @@
 class kerberos::server {
 
     include kerberos
-    include lokkit
 
     package { 'krb5-server':
         ensure  => installed,
