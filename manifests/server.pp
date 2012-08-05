@@ -78,7 +78,6 @@ class kerberos::server {
         hasrestart      => true,
         hasstatus       => true,
         require         => [
-            Exec['open-kadmin-tcp-port'],
             Package['krb5-server'],
         ],
         subscribe       => [
@@ -92,7 +91,6 @@ class kerberos::server {
         hasrestart      => true,
         hasstatus       => true,
         require         => [
-            Exec['open-kerberos-tcp-port'],
             Package['krb5-server'],
         ],
         subscribe       => [
