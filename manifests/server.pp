@@ -63,12 +63,10 @@ class kerberos::server {
         ],
     }
 
-    lokkit::tcp_port { 'kadmin':
-        port    => '749',
-    }
-
-    lokkit::tcp_port { 'kerberos':
-        port    => '88',
+    lokkit::tcp_port {
+        'kadmin':       port => '749';
+        'kerberos':     port => '88';
+        'kpasswd':      port => '464';
     }
 
     service { 'kadmin':
