@@ -63,7 +63,7 @@ class kerberos::server {
         ],
     }
 
-    lokkit::tcp_port {
+    iptables::tcp_port {
         'kadmin':       port => '749';
         'kerberos':     port => '88';
         'kpasswd':      port => '464';
