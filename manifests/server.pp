@@ -19,12 +19,12 @@
 #
 # Example usage:
 #
-#       include kerberos
-#       include kerberos::server
+#       include 'kerberos'
+#       include 'kerberos::server'
 
 class kerberos::server {
 
-    include kerberos
+    include 'kerberos'
 
     package { 'krb5-server':
         ensure  => installed,

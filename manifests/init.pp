@@ -13,7 +13,7 @@
 #
 # Example usage:
 #
-#       include kerberos
+#       include 'kerberos'
 
 class kerberos {
 
