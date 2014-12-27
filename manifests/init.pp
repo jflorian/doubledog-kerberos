@@ -1,47 +1,46 @@
 # modules/kerberos/manifests/init.pp
 #
-# Synopsis:
-#       Configures a host for participation in a Kerberos realm.
+# == Class: kerberos
 #
-# Parameters:
-#       Name__________  Default_______  Description___________________________
+# Manages kerberos on a host.
 #
-#       NONE
+# === Parameters
 #
-# Requires:
-#       NONE
+# [*content*]
+#   Literal content for the krb5.conf file.  One and only one of "content" or
+#   "source" must be given.
 #
-# Example usage:
+# [*source*]
+#   URI of the krb5.conf file content.  One and only one of "content" or
+#   "source" must be given.
 #
-#       include 'kerberos'
+# === Authors
+#
+#   John Florian <john.florian@dart.biz>
 
-class kerberos {
 
-    package { 'krb5-libs':
-        ensure  => installed,
+class kerberos (
+        $content=undef,
+        $source=undef,
+    ) {
+
+    include 'kerberos::params'
+
+    package { $kerberos::params::common_packages:
+        ensure => installed,
     }
 
-    package { 'krb5-workstation':
-        ensure  => installed,
-    }
-
-    package { 'pam_krb5':
-        ensure  => installed,
-    }
-
+    # TODO: Create this file from a template and more parameters.
     file { '/etc/krb5.conf':
-        group   => 'root',
-        mode    => '0644',
-        owner   => 'root',
-        require => Package['krb5-libs'],
-        seluser => 'system_u',
-        selrole => 'object_r',
-        seltype => 'krb5_conf_t',
-        source  => [
-            'puppet:///private-host/kerberos/krb5.conf',
-            'puppet:///private-domain/kerberos/krb5.conf',
-            'puppet:///modules/kerberos/krb5.conf',
-        ],
+        owner     => 'root',
+        group     => 'root',
+        mode      => '0644',
+        seluser   => 'system_u',
+        selrole   => 'object_r',
+        seltype   => 'krb5_conf_t',
+        subscribe => Package[$kerberos::params::common_packages],
+        content   => $content,
+        source    => $source,
     }
 
 }
