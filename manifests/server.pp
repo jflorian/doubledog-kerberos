@@ -6,7 +6,9 @@
 # Parameters:
 #       Name__________  Default_______  Description___________________________
 #
-#       NONE
+# [*manage_firewall*]
+#   If true, open the Kerberos ports on the firewall.  Otherwise the firewall
+#   is left unaffected.  Defaults to true.
 #
 # Requires:
 #       NONE
@@ -22,7 +24,9 @@
 #       include 'kerberos'
 #       include 'kerberos::server'
 
-class kerberos::server {
+class kerberos::server (
+        $manage_firewall=true,
+    ) {
 
     include 'kerberos'
 
@@ -63,10 +67,13 @@ class kerberos::server {
         ],
     }
 
-    iptables::tcp_port {
-        'kadmin':       port => '749';
-        'kerberos':     port => '88';
-        'kpasswd':      port => '464';
+    if $manage_firewall {
+        firewall { '550 accept Kerberos packets':
+                dport       => ['88', '464', '749'],
+                proto       => 'tcp',
+                state       => 'NEW',
+                action      => 'accept',
+        }
     }
 
     service { 'kadmin':
