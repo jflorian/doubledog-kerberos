@@ -74,11 +74,17 @@ class kerberos::server (
     }
 
     if $manage_firewall {
-        firewall { '550 accept Kerberos packets':
+        firewall {
+            '550 accept Kerberos packets':
                 dport  => ['88', '464', '749'],
                 proto  => 'tcp',
                 state  => 'NEW',
-                action => 'accept',
+                action => 'accept';
+            '551 accept Kerberos packets':
+                dport  => ['88', '750'],
+                proto  => 'udp',
+                state  => 'NEW',
+                action => 'accept';
         }
     }
 
