@@ -12,7 +12,8 @@
 class kerberos::params {
 
     case $::operatingsystem {
-        Fedora: {
+
+        'CentOS', 'Fedora': {
 
             $common_packages = [
                 'krb5-libs',
@@ -30,7 +31,7 @@ class kerberos::params {
         }
 
         default: {
-            fail ("The kerberos module is not yet supported on ${::operatingsystem}.")
+            fail ("${title}: operating system '${::operatingsystem}' is not supported")
         }
 
     }
