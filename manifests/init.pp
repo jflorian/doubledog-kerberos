@@ -30,7 +30,6 @@ class kerberos (
         ensure => installed,
     }
 
-    # TODO: Create this file from a template and more parameters.
     file { '/etc/krb5.conf':
         owner     => 'root',
         group     => 'root',
