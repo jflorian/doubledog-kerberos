@@ -35,6 +35,10 @@
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
+#
+# === Copyright
+#
+# Copyright 2012-2017 John Florian
 
 
 class kerberos::server (
@@ -52,25 +56,25 @@ class kerberos::server (
         require => Class['kerberos'],
     }
 
-    File {
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0600',
-        require => Package['krb5-server'],
-        seluser => 'system_u',
-        selrole => 'object_r',
-        seltype => 'krb5kdc_conf_t',
-        subscribe   => Package[$kerberos::params::server_packages],
-    }
-
-    file { '/var/kerberos/krb5kdc/kadm5.acl':
-        content => $kadmin_acl_content,
-        source  => $kadmin_acl_source,
-    }
-
-    file { '/var/kerberos/krb5kdc/kdc.conf':
-        content => $kdc_conf_content,
-        source  => $kdc_conf_source,
+    file {
+        default:
+            owner   => 'root',
+            group   => 'root',
+            mode    => '0600',
+            require => Package['krb5-server'],
+            seluser => 'system_u',
+            selrole => 'object_r',
+            seltype => 'krb5kdc_conf_t',
+            subscribe   => Package[$kerberos::params::server_packages],
+            ;
+        '/var/kerberos/krb5kdc/kadm5.acl':
+            content => $kadmin_acl_content,
+            source  => $kadmin_acl_source,
+            ;
+        '/var/kerberos/krb5kdc/kdc.conf':
+            content => $kdc_conf_content,
+            source  => $kdc_conf_source,
+            ;
     }
 
     if $manage_firewall {
@@ -88,25 +92,25 @@ class kerberos::server (
         }
     }
 
-    Service {
-        ensure     => running,
-        enable     => true,
-        hasrestart => true,
-        hasstatus  => true,
-    }
-
-    service { $kerberos::params::kadmin_service:
-        subscribe  => [
-            File['/var/kerberos/krb5kdc/kadm5.acl'],
-            Package[$kerberos::params::server_packages],
-        ],
-    }
-
-    service { $kerberos::params::kdc_service:
-        subscribe  => [
-            File['/var/kerberos/krb5kdc/kdc.conf'],
-            Package[$kerberos::params::server_packages],
-        ],
+    service {
+        default:
+            ensure     => running,
+            enable     => true,
+            hasrestart => true,
+            hasstatus  => true,
+            ;
+        $kerberos::params::kadmin_service:
+            subscribe  => [
+                File['/var/kerberos/krb5kdc/kadm5.acl'],
+                Package[$kerberos::params::server_packages],
+            ],
+            ;
+        $kerberos::params::kdc_service:
+            subscribe  => [
+                File['/var/kerberos/krb5kdc/kdc.conf'],
+                Package[$kerberos::params::server_packages],
+            ],
+            ;
     }
 
 }
