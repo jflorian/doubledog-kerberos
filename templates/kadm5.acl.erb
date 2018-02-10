@@ -1,0 +1,7 @@
+#
+# Kerberos ACL file for the <%= scope.lookupvar('::kerberos::realm') %> realm
+#
+# WARNING:
+#   This file is managed by Puppet via the "<%= @module_name %>" module.
+
+*/admin@<%= scope.lookupvar('::kerberos::realm') %>   *

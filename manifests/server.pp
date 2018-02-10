@@ -5,14 +5,6 @@
 #
 # === Parameters
 #
-# [*kadmin_acl_content*]
-#   Literal content for the kadmin ACL file.  One and only one of
-#   "kadmin_acl_content" or "kadmin_acl_source" must be given.
-#
-# [*kadmin_acl_source*]
-#   URI of the kadmin ACL file content.  One and only one of
-#   "kadmin_acl_content" or "kadmin_acl_source" must be given.
-#
 # [*kdc_conf_content*]
 #   Literal content for the KDC configuration file.  One and only one of
 #   "kdc_conf_content" or "kdc_conf_source" must be given.
@@ -35,8 +27,6 @@ class kerberos::server (
         String[1]               $kdc_service,
         Boolean                 $manage_firewall,
         Array[String[1], 1]     $packages,
-        $kadmin_acl_content=undef,
-        $kadmin_acl_source=undef,
         $kdc_conf_content=undef,
         $kdc_conf_source=undef,
     ) {
@@ -60,8 +50,7 @@ class kerberos::server (
             subscribe   => Package[$packages],
             ;
         '/var/kerberos/krb5kdc/kadm5.acl':
-            content => $kadmin_acl_content,
-            source  => $kadmin_acl_source,
+            content => template('kerberos/kadm5.acl.erb'),
             ;
         '/var/kerberos/krb5kdc/kdc.conf':
             content => $kdc_conf_content,
