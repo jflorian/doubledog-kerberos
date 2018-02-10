@@ -3,16 +3,6 @@
 #
 # Manages a host as a Kerberos server.
 #
-# === Parameters
-#
-# [*kdc_conf_content*]
-#   Literal content for the KDC configuration file.  One and only one of
-#   "kdc_conf_content" or "kdc_conf_source" must be given.
-#
-# [*kdc_conf_source*]
-#   URI of the KDC configuration file content.  One and only one of
-#   "kdc_conf_content" or "kdc_conf_source" must be given.
-#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
@@ -27,8 +17,6 @@ class kerberos::server (
         String[1]               $kdc_service,
         Boolean                 $manage_firewall,
         Array[String[1], 1]     $packages,
-        $kdc_conf_content=undef,
-        $kdc_conf_source=undef,
     ) {
 
     include '::kerberos'
@@ -53,8 +41,7 @@ class kerberos::server (
             content => template('kerberos/kadm5.acl.erb'),
             ;
         '/var/kerberos/krb5kdc/kdc.conf':
-            content => $kdc_conf_content,
-            source  => $kdc_conf_source,
+            content => template('kerberos/kdc.conf.erb'),
             ;
     }
 
