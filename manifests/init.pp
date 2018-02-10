@@ -3,16 +3,6 @@
 #
 # Manages Kerberos on a host.
 #
-# === Parameters
-#
-# [*content*]
-#   Literal content for the krb5.conf file.  One and only one of "content" or
-#   "source" must be given.
-#
-# [*source*]
-#   URI of the krb5.conf file content.  One and only one of "content" or
-#   "source" must be given.
-#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
@@ -23,9 +13,11 @@
 
 
 class kerberos (
+        String[1]               $admin_server,
+        String[1]               $domain,
+        String[1]               $kdc,
         Array[String[1], 1]     $packages,
-        $content=undef,
-        $source=undef,
+        String[1]               $realm,
     ) {
 
     package { $packages:
@@ -40,8 +32,7 @@ class kerberos (
         selrole   => 'object_r',
         seltype   => 'krb5_conf_t',
         subscribe => Package[$packages],
-        content   => $content,
-        source    => $source,
+        content   => template('kerberos/krb5.conf.erb'),
     }
 
 }

@@ -43,6 +43,18 @@ This module lets you manage Kerberos.
 
 This class manages the system Kerberos configuration and ensures workstation libraries, PAM modules, etc. are installed.
 
+##### `admin_server` (required)
+A string specifying the DNS name of your Kerberos administration server.  E.g., `'kerberos.example.com'`.
+
+##### `kdc` (required)
+A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
+
+##### `realm` (required)
+A string specifying the name of the Kerberos realm.  This is commonly given as all uppercase and otherwise often matches *domain* but that's not strictly necessary.  E.g., `'EXAMPLE.COM'`.
+
+##### `domain`
+A string specifying the DNS domain name.  E.g., `'example.com'`.  The default is the value of `$domain` from Facter which should be acceptable in most cases.
+
 ##### `packages`
 An array of package names needed for the Kerberos installation.  The default should be correct for supported platforms.
 

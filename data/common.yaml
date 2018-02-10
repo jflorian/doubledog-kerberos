@@ -1,4 +1,5 @@
 ---
+kerberos::domain:               "%{::domain}"
 kerberos::packages:
     - krb5-libs
     - krb5-workstation
