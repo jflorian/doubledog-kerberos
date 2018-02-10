@@ -15,12 +15,6 @@ class kerberos::params {
 
         'CentOS', 'Fedora': {
 
-            $common_packages = [
-                'krb5-libs',
-                'krb5-workstation',
-                'pam_krb5',
-            ]
-
             $server_packages = [
                 'krb5-server',
             ]

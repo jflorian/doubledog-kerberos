@@ -32,10 +32,19 @@ This module lets you manage Kerberos.
 
 **Classes:**
 
+* [kerberos](#kerberos-class)
+
 **Defined types:**
 
 
 ### Classes
+
+#### kerberos class
+
+This class manages the system Kerberos configuration and ensures workstation libraries, PAM modules, etc. are installed.
+
+##### `packages`
+An array of package names needed for the Kerberos installation.  The default should be correct for supported platforms.
 
 
 ### Defined types

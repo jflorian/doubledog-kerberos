@@ -23,13 +23,12 @@
 
 
 class kerberos (
+        Array[String[1], 1]     $packages,
         $content=undef,
         $source=undef,
     ) {
 
-    include 'kerberos::params'
-
-    package { $kerberos::params::common_packages:
+    package { $packages:
         ensure => installed,
     }
 
@@ -40,7 +39,7 @@ class kerberos (
         seluser   => 'system_u',
         selrole   => 'object_r',
         seltype   => 'krb5_conf_t',
-        subscribe => Package[$kerberos::params::common_packages],
+        subscribe => Package[$packages],
         content   => $content,
         source    => $source,
     }
