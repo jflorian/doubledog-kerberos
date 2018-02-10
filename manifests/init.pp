@@ -1,8 +1,7 @@
-# modules/kerberos/manifests/init.pp
 #
 # == Class: kerberos
 #
-# Manages kerberos on a host.
+# Manages Kerberos on a host.
 #
 # === Parameters
 #
@@ -16,7 +15,7 @@
 #
 # === Authors
 #
-#   John Florian <john.florian@dart.biz>
+#   John Florian <jflorian@doubledog.org>
 
 
 class kerberos (
