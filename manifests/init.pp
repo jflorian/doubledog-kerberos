@@ -16,6 +16,10 @@
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
+#
+# === Copyright
+#
+# Copyright 2012-2018 John Florian
 
 
 class kerberos (
