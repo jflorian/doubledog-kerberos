@@ -33,6 +33,7 @@ This module lets you manage Kerberos.
 **Classes:**
 
 * [kerberos](#kerberos-class)
+* [kerberos::server](#kerberosserver-class)
 
 **Defined types:**
 
@@ -57,6 +58,20 @@ A string specifying the DNS domain name.  E.g., `'example.com'`.  The default is
 
 ##### `packages`
 An array of package names needed for the Kerberos installation.  The default should be correct for supported platforms.
+
+
+#### kerberos::server class
+
+This class manages a host as Kerberos server.  This class does not create the database.  See `kdb5_util(8)` for help with that or consult documentation such as the [Fedora Security Guide](http://docs.fedoraproject.org/en-US/Fedora/html/Security_Guide/sect-Security_Guide-Kerberos-Configuring_a_Kerberos_5_Server.html) for further details.
+
+##### `packages`
+An array of package names needed for the Kerberos server installation.  The default should be correct for supported platforms.
+
+##### `kadmin_service`
+The service name of the kadmin daemon.  The default should be correct for supported platforms.
+
+##### `kdc_service`
+The service name of the KDC daemon.  The default should be correct for supported platforms.
 
 
 ### Defined types

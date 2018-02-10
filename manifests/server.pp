@@ -1,4 +1,3 @@
-# modules/kerberos/manifests/server.pp
 #
 # == Class: kerberos::server
 #
@@ -26,22 +25,19 @@
 #   If true, open the Kerberos ports on the firewall.  Otherwise the firewall
 #   is left unaffected.  Defaults to true.
 #
-# === Notes
-#   This class does NOT create the database.  See kdb5_util(8) for help with
-#   that or consult documentation such as
-#   http://docs.fedoraproject.org/en-US/Fedora/html/Security_Guide/sect-Security_Guide-Kerberos-Configuring_a_Kerberos_5_Server.html
-#   for further details.
-#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
 #
 # === Copyright
 #
-# Copyright 2012-2017 John Florian
+# Copyright 2012-2018 John Florian
 
 
 class kerberos::server (
+        String[1]               $kadmin_service,
+        String[1]               $kdc_service,
+        Array[String[1], 1]     $packages,
         $kadmin_acl_content=undef,
         $kadmin_acl_source=undef,
         $kdc_conf_content=undef,
@@ -49,11 +45,11 @@ class kerberos::server (
         $manage_firewall=true,
     ) {
 
-    include 'kerberos'
+    include '::kerberos'
 
-    package { $kerberos::params::server_packages:
+    package { $packages:
         ensure  => installed,
-        require => Class['kerberos'],
+        require => Class['::kerberos'],
     }
 
     file {
@@ -65,7 +61,7 @@ class kerberos::server (
             seluser => 'system_u',
             selrole => 'object_r',
             seltype => 'krb5kdc_conf_t',
-            subscribe   => Package[$kerberos::params::server_packages],
+            subscribe   => Package[$packages],
             ;
         '/var/kerberos/krb5kdc/kadm5.acl':
             content => $kadmin_acl_content,
@@ -99,16 +95,16 @@ class kerberos::server (
             hasrestart => true,
             hasstatus  => true,
             ;
-        $kerberos::params::kadmin_service:
+        $kadmin_service:
             subscribe  => [
                 File['/var/kerberos/krb5kdc/kadm5.acl'],
-                Package[$kerberos::params::server_packages],
+                Package[$packages],
             ],
             ;
-        $kerberos::params::kdc_service:
+        $kdc_service:
             subscribe  => [
                 File['/var/kerberos/krb5kdc/kdc.conf'],
-                Package[$kerberos::params::server_packages],
+                Package[$packages],
             ],
             ;
     }
