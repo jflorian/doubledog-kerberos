@@ -73,6 +73,9 @@ The service name of the kadmin daemon.  The default should be correct for suppor
 ##### `kdc_service`
 The service name of the KDC daemon.  The default should be correct for supported platforms.
 
+##### `manage_firewall`
+If `true`, open the Kerberos ports on the firewall.  Otherwise the firewall is left unaffected.  Defaults to `true`.
+
 
 ### Defined types
 

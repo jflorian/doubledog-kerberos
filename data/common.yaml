@@ -7,5 +7,6 @@ kerberos::packages:
 
 kerberos::server::kadmin_service:   kadmin
 kerberos::server::kdc_service:      krb5kdc
+kerberos::server::manage_firewall:  true
 kerberos::server::packages:
     - krb5-server

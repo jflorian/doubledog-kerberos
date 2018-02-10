@@ -21,10 +21,6 @@
 #   URI of the KDC configuration file content.  One and only one of
 #   "kdc_conf_content" or "kdc_conf_source" must be given.
 #
-# [*manage_firewall*]
-#   If true, open the Kerberos ports on the firewall.  Otherwise the firewall
-#   is left unaffected.  Defaults to true.
-#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
@@ -37,12 +33,12 @@
 class kerberos::server (
         String[1]               $kadmin_service,
         String[1]               $kdc_service,
+        Boolean                 $manage_firewall,
         Array[String[1], 1]     $packages,
         $kadmin_acl_content=undef,
         $kadmin_acl_source=undef,
         $kdc_conf_content=undef,
         $kdc_conf_source=undef,
-        $manage_firewall=true,
     ) {
 
     include '::kerberos'
