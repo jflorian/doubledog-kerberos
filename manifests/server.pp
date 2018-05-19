@@ -9,7 +9,9 @@
 #
 # === Copyright
 #
+# This file is part of the doubledog-kerberos Puppet module.
 # Copyright 2012-2018 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 
 class kerberos::server (
@@ -28,14 +30,14 @@ class kerberos::server (
 
     file {
         default:
-            owner   => 'root',
-            group   => 'root',
-            mode    => '0600',
-            require => Package['krb5-server'],
-            seluser => 'system_u',
-            selrole => 'object_r',
-            seltype => 'krb5kdc_conf_t',
-            subscribe   => Package[$packages],
+            owner     => 'root',
+            group     => 'root',
+            mode      => '0600',
+            require   => Package['krb5-server'],
+            seluser   => 'system_u',
+            selrole   => 'object_r',
+            seltype   => 'krb5kdc_conf_t',
+            subscribe => Package[$packages],
             ;
         '/var/kerberos/krb5kdc/kadm5.acl':
             content => template('kerberos/kadm5.acl.erb'),
