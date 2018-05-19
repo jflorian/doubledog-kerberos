@@ -1,3 +1,9 @@
+<!--
+# This file is part of the doubledog-kerberos Puppet module.
+# Copyright 2018 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # kerberos
 
 #### Table of Contents
@@ -37,6 +43,8 @@ This module lets you manage Kerberos.
 
 **Defined types:**
 
+* [kerberos::client\_realm](#kerberosclientrealm-defined-type)
+
 
 ### Classes
 
@@ -44,17 +52,8 @@ This module lets you manage Kerberos.
 
 This class manages the system Kerberos configuration and ensures workstation libraries, PAM modules, etc. are installed.
 
-##### `admin_server` (required)
-A string specifying the DNS name of your Kerberos administration server.  E.g., `'kerberos.example.com'`.
-
-##### `kdc` (required)
-A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
-
-##### `realm` (required)
-A string specifying the name of the Kerberos realm.  This is commonly given as all uppercase and otherwise often matches *domain* but that's not strictly necessary.  E.g., `'EXAMPLE.COM'`.
-
-##### `domain`
-A string specifying the DNS domain name.  E.g., `'example.com'`.  The default is the value of `$domain` from Facter which should be acceptable in most cases.
+##### `default_realm` (required)
+A string specifying the name of the default Kerberos realm, which should be of those defined by [kerberos::client\_realm](#kerberosclientrealm-defined-type).
 
 ##### `packages`
 An array of package names needed for the Kerberos installation.  The default should be correct for supported platforms.
@@ -79,6 +78,29 @@ If `true`, open the Kerberos ports on the firewall.  Otherwise the firewall is l
 
 ### Defined types
 
+#### kerberos::client\_realm defined type
+
+This defined type manages the configuration of a realm on a Kerberos client host.
+
+##### `namevar` (required)
+A string specifying the name of the Kerberos realm.  This is commonly given as all uppercase and otherwise often matches *domain* but that's not strictly necessary.  E.g., `'EXAMPLE.COM'`.
+
+##### `admin_server` (required)
+A string specifying the DNS name of your Kerberos administration server.  E.g., `'kerberos.example.com'`.
+
+##### `kdc` (required)
+A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
+
+##### `realm` (required)
+
+##### `domain`
+A string specifying the DNS domain name.  E.g., `'example.com'`.  The default is the value of `$domain` from Facter.
+
+##### `ensure`
+Instance is to be `'present'` (default) or `'absent'`.  Alternatively, a Boolean value may also be used with `true` equivalent to `'present'` and `false` equivalent to `'absent'`.
+
+##### `filename`
+Name to be given to the realm configuration file, without any path details.  The default is derived from *namevar* which is best in most cases.
 
 ## Limitations
 

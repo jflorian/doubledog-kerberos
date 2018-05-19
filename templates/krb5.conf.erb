@@ -1,3 +1,8 @@
+<%#
+This file is part of the doubledog-kerberos Puppet module.
+Copyright 2018 John Florian
+SPDX-License-Identifier: GPL-3.0-or-later
+-%>
 #
 # Kerberos configuration for <%= @fqdn %>
 #
@@ -20,15 +25,5 @@ includedir /etc/krb5.conf.d/
  renew_lifetime = 7d
  forwardable = true
  rdns = false
- default_realm = <%= @realm %>
+ default_realm = <%= @default_realm %>
  default_ccache_name = KEYRING:persistent:%{uid}
-
-[realms]
- <%= @realm %> = {
-  kdc = <%= @kdc %>
-  admin_server = <%= @admin_server %>
- }
-
-[domain_realm]
- .<%= @domain %> = <%= @realm %>
- <%= @domain %> = <%= @realm %>

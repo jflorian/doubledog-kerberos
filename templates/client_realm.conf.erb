@@ -4,9 +4,17 @@ Copyright 2018 John Florian
 SPDX-License-Identifier: GPL-3.0-or-later
 -%>
 #
-# Kerberos ACL file for the <%= scope.lookupvar('::kerberos::default_realm') %> realm
+# Kerberos client realm configuration for <%= @fqdn %>
 #
 # WARNING:
 #   This file is managed by Puppet via the "<%= @module_name %>" module.
 
-*/admin@<%= scope.lookupvar('::kerberos::default_realm') %>   *
+[realms]
+ <%= @name %> = {
+    kdc = <%= @kdc %>
+    admin_server = <%= @admin_server %>
+ }
+
+[domain_realm]
+ .<%= @domain %> = <%= @name %>
+ <%= @domain %> = <%= @name %>
