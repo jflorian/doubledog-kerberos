@@ -91,8 +91,6 @@ A string specifying the DNS name of your Kerberos administration server.  E.g., 
 ##### `kdc` (required)
 A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
 
-##### `realm` (required)
-
 ##### `domain`
 A string specifying the DNS domain name.  E.g., `'example.com'`.  Defaults to the host's DNS domain.
 
