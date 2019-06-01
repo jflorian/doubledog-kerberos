@@ -15,11 +15,11 @@
 
 
 define kerberos::client_realm (
-        String[1]                                   $admin_server,
-        String[1]                                   $kdc,
-        String[1]                                   $domain=$::domain,
-        Variant[Boolean, Enum['present', 'absent']] $ensure='present',
-        String[1]                                   $filename="${title}.conf",
+        String[1]                       $admin_server,
+        String[1]                       $kdc,
+        String[1]                       $domain=$::domain,
+        Ddolib::File::Ensure::Limited   $ensure='present',
+        String[1]                       $filename="${title}.conf",
     ) {
 
     include '::kerberos'

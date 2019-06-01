@@ -21,11 +21,14 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 
 ## [2.1.0] WIP
 ### Added
+- dependency on `doubledog-ddolib` module
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
-- `kerberos::client_realm::ensure` parameter not honored
+- `kerberos::client_realm::ensure` parameter:
+    - not honored
+    - must not accept Boolean values
 ### Security
 
 ## [2.0.0 and prior] 2018-12-15

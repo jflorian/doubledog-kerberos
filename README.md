@@ -1,7 +1,7 @@
 <!--
-# This file is part of the doubledog-kerberos Puppet module.
-# Copyright 2018 John Florian
-# SPDX-License-Identifier: GPL-3.0-or-later
+This file is part of the doubledog-kerberos Puppet module.
+Copyright 2018-2019 John Florian
+SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
 # kerberos
@@ -97,7 +97,7 @@ A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
 A string specifying the DNS domain name.  E.g., `'example.com'`.  The default is the value of `$domain` from Facter.
 
 ##### `ensure`
-Instance is to be `'present'` (default) or `'absent'`.  Alternatively, a Boolean value may also be used with `true` equivalent to `'present'` and `false` equivalent to `'absent'`.
+Instance is to be `'present'` (default) or `'absent'`.
 
 ##### `filename`
 Name to be given to the realm configuration file, without any path details.  The default is derived from *namevar* which is best in most cases.
