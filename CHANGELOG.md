@@ -25,6 +25,7 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 - Fedora 29-30 support
 ### Changed
 - refactored to no longer use absolute namespace references
+- refactored to use structured Puppet facts instead of legacy ones
 ### Deprecated
 ### Removed
 - Fedora 26-27 support

@@ -94,7 +94,7 @@ A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
 ##### `realm` (required)
 
 ##### `domain`
-A string specifying the DNS domain name.  E.g., `'example.com'`.  The default is the value of `$domain` from Facter.
+A string specifying the DNS domain name.  E.g., `'example.com'`.  Defaults to the host's DNS domain.
 
 ##### `ensure`
 Instance is to be `'present'` (default) or `'absent'`.
