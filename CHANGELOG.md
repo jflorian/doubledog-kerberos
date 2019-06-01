@@ -23,6 +23,7 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 ### Added
 - dependency on `doubledog-ddolib` module
 ### Changed
+- refactored to no longer use absolute namespace references
 ### Deprecated
 ### Removed
 ### Fixed

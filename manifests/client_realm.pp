@@ -22,7 +22,7 @@ define kerberos::client_realm (
         String[1]                       $filename="${title}.conf",
     ) {
 
-    include '::kerberos'
+    include 'kerberos'
 
     file { "/etc/krb5.conf.d/${filename}":
         ensure  => $ensure,
@@ -32,7 +32,7 @@ define kerberos::client_realm (
         seluser => 'system_u',
         selrole => 'object_r',
         seltype => 'etc_t',
-        require => Class['::kerberos'],
+        require => Class['kerberos'],
         content => template('kerberos/client_realm.conf.erb'),
     }
 

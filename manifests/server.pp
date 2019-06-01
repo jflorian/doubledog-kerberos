@@ -10,7 +10,7 @@
 # === Copyright
 #
 # This file is part of the doubledog-kerberos Puppet module.
-# Copyright 2012-2018 John Florian
+# Copyright 2012-2019 John Florian
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
@@ -21,11 +21,11 @@ class kerberos::server (
         Array[String[1], 1]     $packages,
     ) {
 
-    include '::kerberos'
+    include 'kerberos'
 
     package { $packages:
         ensure  => installed,
-        require => Class['::kerberos'],
+        require => Class['kerberos'],
     }
 
     file {
