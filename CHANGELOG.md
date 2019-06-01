@@ -27,6 +27,7 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 - refactored to no longer use absolute namespace references
 ### Deprecated
 ### Removed
+- Fedora 26-27 support
 ### Fixed
 - `kerberos::client_realm::ensure` parameter:
     - not honored
