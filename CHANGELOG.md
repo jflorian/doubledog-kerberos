@@ -22,10 +22,10 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 ## [2.1.0] WIP
 ### Added
 ### Changed
-- use Hiera 5 data format
 ### Deprecated
 ### Removed
 ### Fixed
+- `kerberos::client_realm::ensure` parameter not honored
 ### Security
 
 ## [2.0.0 and prior] 2018-12-15
