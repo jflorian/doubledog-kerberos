@@ -24,6 +24,7 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 - `kerberos::server::master_key_type` parameter
 - `kerberos::server::supported_enctypes` parameter
 ### Changed
+- dependency on `puppetlabs/firewall` now allows version 3
 ### Deprecated
 ### Removed
 ### Fixed
