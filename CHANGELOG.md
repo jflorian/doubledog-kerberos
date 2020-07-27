@@ -19,6 +19,16 @@ Template
 
 All notable changes to this project (since v2.0.0) will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.2.1] WIP
+### Added
+### Changed
+### Deprecated
+### Removed
+- deployment/management of `pam_krb5`
+### Fixed
+- `pam_krb5` not available in Fedora 32
+### Security
+
 ## [2.2.0] 2020-01-02
 ### Added
 - Fedora 31 support
