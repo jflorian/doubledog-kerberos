@@ -21,10 +21,12 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 
 ## [2.2.1] WIP
 ### Added
+- Fedora 32 support
 ### Changed
 ### Deprecated
 ### Removed
 - deployment/management of `pam_krb5`
+- Fedora 29 support
 ### Fixed
 - `pam_krb5` not available in Fedora 32
 ### Security
