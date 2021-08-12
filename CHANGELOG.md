@@ -21,10 +21,12 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 
 ## [2.3.0] WIP
 ### Added
+- Fedora 33-34 support
 ### Changed
 - supported encryption types to match defaults of CentOS 8 Stream
 ### Deprecated
 ### Removed
+- Fedora 30-31 support
 ### Fixed
 ### Security
 
