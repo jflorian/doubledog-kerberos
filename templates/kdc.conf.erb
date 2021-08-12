@@ -1,6 +1,6 @@
 <%#
 This file is part of the doubledog-kerberos Puppet module.
-Copyright 2018-2019 John Florian
+Copyright 2018-2021 John Florian
 SPDX-License-Identifier: GPL-3.0-or-later
 -%>
 #
@@ -10,14 +10,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #   This file is managed by Puppet via the "<%= @module_name %>" module.
 
 [kdcdefaults]
- kdc_ports = 88
- kdc_tcp_ports = 88
+    kdc_ports = 88
+    kdc_tcp_ports = 88
+    spake_preauth_kdc_challenge = edwards25519
 
 [realms]
  <%= scope.lookupvar('kerberos::default_realm') %> = {
-  #master_key_type = aes256-cts
-  acl_file = /var/kerberos/krb5kdc/kadm5.acl
-  dict_file = /usr/share/dict/words
-  admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
-  supported_enctypes = aes256-cts:normal aes128-cts:normal des3-hmac-sha1:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal des-hmac-sha1:normal des-cbc-md5:normal des-cbc-crc:normal
- }
+     #master_key_type = aes256-cts
+     acl_file = /var/kerberos/krb5kdc/kadm5.acl
+     dict_file = /usr/share/dict/words
+     admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+     supported_enctypes = aes256-cts:normal aes128-cts:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal
+}
