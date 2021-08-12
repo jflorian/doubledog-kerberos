@@ -19,16 +19,13 @@ Template
 
 All notable changes to this project (since v2.0.0) will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [2.3.0] WIP
+## [2.3.0] 2021-08-12
 ### Added
 - Fedora 33-34 support
 ### Changed
 - supported encryption types to match defaults of CentOS 8 Stream
-### Deprecated
 ### Removed
 - Fedora 30-31 support
-### Fixed
-### Security
 
 ## [2.2.1] 2020-07-28
 ### Added

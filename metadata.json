@@ -1,6 +1,6 @@
 {
     "name": "doubledog-kerberos",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "author": "John Florian",
     "summary": "A module to manage the Kerberos clients and servers",
     "license": "GPL-3.0",
