@@ -23,6 +23,7 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 ### Added
 - many new parameters for client realms
     - defaults are from `krb5-libs-1.18.2-13.el8.x86_64`
+- `kerberos::client_realms` parameter to allow all values to be set via Hiera
 ### Changed
 - `krb5.conf` now sets `pkinit_anchors` and `spake_preauth_groups`
     - per defaults from `krb5-libs-1.18.2-13.el8.x86_64`

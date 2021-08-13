@@ -55,6 +55,9 @@ This class manages the system Kerberos configuration and ensures workstation lib
 ##### `default_realm` (required)
 A string specifying the name of the default Kerberos realm, which should be of those defined by [kerberos::client\_realm](#kerberosclientrealm-defined-type).
 
+##### `client_realms`
+A hash whose keys are configuration resource names and whose values are hashes comprising the same parameters you would otherwise pass to the [kerberos::client\_realm](#kerberosclientrealm-defined-type) defined type.  The default is none.
+
 ##### `packages`
 An array of package names needed for the Kerberos installation.  The default should be correct for supported platforms.
 

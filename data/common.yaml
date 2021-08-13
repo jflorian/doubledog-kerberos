@@ -1,9 +1,10 @@
 # This file is part of the doubledog-kerberos Puppet module.
-# Copyright 2018-2020 John Florian
+# Copyright 2018-2021 John Florian
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 ---
 
+kerberos::client_realms:            {}
 kerberos::packages:
     - krb5-libs
     - krb5-workstation
