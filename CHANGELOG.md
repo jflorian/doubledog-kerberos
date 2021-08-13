@@ -19,6 +19,16 @@ Template
 
 All notable changes to this project (since v2.0.0) will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.4.0] WIP
+### Added
+### Changed
+- `krb5.conf` now sets `pkinit_anchors` and `spake_preauth_groups`
+    - per defaults from `krb5-libs-1.18.2-13.el8.x86_64`
+### Deprecated
+### Removed
+### Fixed
+### Security
+
 ## [2.3.0] 2021-08-12
 ### Added
 - Fedora 33-34 support

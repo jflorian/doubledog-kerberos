@@ -1,6 +1,6 @@
 <%#
 This file is part of the doubledog-kerberos Puppet module.
-Copyright 2018 John Florian
+Copyright 2018-2021 John Florian
 SPDX-License-Identifier: GPL-3.0-or-later
 -%>
 #
@@ -14,16 +14,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 includedir /etc/krb5.conf.d/
 
 [logging]
- default = FILE:/var/log/krb5libs.log
- kdc = FILE:/var/log/krb5kdc.log
- admin_server = FILE:/var/log/kadmind.log
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
 
 [libdefaults]
- dns_lookup_realm = false
- dns_lookup_kdc = false
- ticket_lifetime = 24h
- renew_lifetime = 7d
- forwardable = true
- rdns = false
- default_realm = <%= @default_realm %>
- default_ccache_name = KEYRING:persistent:%{uid}
+    dns_lookup_realm = false
+    dns_lookup_kdc = false
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
+    rdns = false
+    pkinit_anchors = FILE:/etc/pki/tls/certs/ca-bundle.crt
+    spake_preauth_groups = edwards25519
+    default_realm = <%= @default_realm %>
+    default_ccache_name = KEYRING:persistent:%{uid}
