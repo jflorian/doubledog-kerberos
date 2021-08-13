@@ -1,6 +1,6 @@
 <!--
 This file is part of the doubledog-kerberos Puppet module.
-Copyright 2018-2019 John Florian
+Copyright 2018-2021 John Florian
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
@@ -91,6 +91,12 @@ A string specifying the DNS name of your Kerberos administration server.  E.g., 
 ##### `kdc` (required)
 A string specifying the DNS name of your KDC.  E.g., `'kerberos.example.com'`.
 
+##### `dns_lookup_kdc`
+A boolean specifying whether DNS SRV records should be used to locate the KDCs and other servers for a realm, if they are not listed in the `krb5.conf` information for the realm..  Defaults to `false`.
+
+##### `dns_lookup_realm`
+A boolean specifying whether the library looks for DNS records for fallback host-to-realm mappings and the default realm.  Defaults to `false`.
+
 ##### `domain`
 A string specifying the DNS domain name.  E.g., `'example.com'`.  Defaults to the host's DNS domain.
 
@@ -99,6 +105,18 @@ Instance is to be `'present'` (default) or `'absent'`.
 
 ##### `filename`
 Name to be given to the realm configuration file, without any path details.  The default is derived from *namevar* which is best in most cases.
+
+##### `forwardable`
+A boolean specifying whether initial tickets will be forwardable by default, if allowed by the KDC.  Defaults to `true`.
+
+##### `rdns`
+A boolean specifying whether reverse name lookup will be used in addition to forward name lookup to canonicalizing hostnames for use in service principal names..  Defaults to `false`.
+
+##### `renew_lifetime`
+A string specifying the default renewable lifetime for initial ticket requests.  Defaults to `7d`.
+
+##### `ticket_lifetime`
+A string specifying the default lifetime for initial ticket requests.  Defaults to `24h`.
 
 ## Limitations
 
