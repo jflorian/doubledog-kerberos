@@ -10,13 +10,14 @@
 # === Copyright
 #
 # This file is part of the doubledog-kerberos Puppet module.
-# Copyright 2012-2018 John Florian
+# Copyright 2012-2021 John Florian
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
 class kerberos (
-        Array[String[1], 1]     $packages,
+        Hash[String[1], Hash]   $client_realms,
         String[1]               $default_realm,
+        Array[String[1], 1]     $packages,
     ) {
 
     package { $packages:
@@ -33,5 +34,7 @@ class kerberos (
         subscribe => Package[$packages],
         content   => template('kerberos/krb5.conf.erb'),
     }
+
+    create_resources(kerberos::client_realm, $client_realms)
 
 }
