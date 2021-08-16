@@ -4,14 +4,15 @@
 
 ---
 
-kerberos::client_realms:            {}
+kerberos::client_realms:              {}
 kerberos::packages:
     - krb5-libs
     - krb5-workstation
     # - pam_krb5
 
-kerberos::server::kadmin_service:   kadmin
-kerberos::server::kdc_service:      krb5kdc
-kerberos::server::manage_firewall:  true
+kerberos::server::kadmin_service:     kadmin
+kerberos::server::kdc_service:        krb5kdc
+kerberos::server::manage_firewall:    true
 kerberos::server::packages:
     - krb5-server
+kerberos::server::supported_enctypes: null

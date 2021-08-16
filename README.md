@@ -78,6 +78,9 @@ The service name of the KDC daemon.  The default should be correct for supported
 ##### `manage_firewall`
 If `true`, open the Kerberos ports on the firewall.  Otherwise the firewall is left unaffected.  Defaults to `true`.
 
+##### `supported_enctypes`
+An array of [encryption types](https://web.mit.edu/kerberos/www/krb5-latest/doc/admin/conf_files/kdc_conf.html#encryption-types) to be supported.  The default is to use those compiled into the krb5-server package.
+
 
 ### Defined types
 
