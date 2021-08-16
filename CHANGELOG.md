@@ -21,6 +21,7 @@ All notable changes to this project (since v2.0.0) will be documented in this fi
 
 ## [2.5.0] WIP
 ### Added
+- `kerberos::server::master_key_type` parameter
 - `kerberos::server::supported_enctypes` parameter
 ### Changed
 ### Deprecated

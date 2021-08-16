@@ -18,6 +18,7 @@ class kerberos::server (
         String[1]                   $kadmin_service,
         String[1]                   $kdc_service,
         Boolean                     $manage_firewall,
+        Optional[String[1]]         $master_key_type,
         Array[String[1], 1]         $packages,
         Optional[Array[String[1]]]  $supported_enctypes,
     ) {

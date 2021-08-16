@@ -16,10 +16,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 [realms]
     <%= scope.lookupvar('kerberos::default_realm') %> = {
-        #master_key_type = aes256-cts
         acl_file = /var/kerberos/krb5kdc/kadm5.acl
         dict_file = /usr/share/dict/words
         admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+<% if defined?(@supported_enctypes) -%>
+        master_key_type = <%= @master_key_type %>
+<% end -%>
 <% if defined?(@supported_enctypes) -%>
         supported_enctypes = <%= @supported_enctypes.join(' ') %>
 <% end -%>
