@@ -19,14 +19,9 @@ Template
 
 All notable changes to this project (since v2.0.0) will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [2.5.1] WIP
-### Added
-### Changed
-### Deprecated
-### Removed
+## [2.5.1] 2021-08-16
 ### Fixed
 - `kerberos::server::master_key_type` parameter
-### Security
 
 ## [2.5.0] 2021-08-16
 ### Added
