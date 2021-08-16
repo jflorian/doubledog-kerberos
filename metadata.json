@@ -1,6 +1,6 @@
 {
     "name": "doubledog-kerberos",
-    "version": "2.4.0",
+    "version": "2.5.0",
     "author": "John Florian",
     "summary": "A module to manage the Kerberos clients and servers",
     "license": "GPL-3.0",
@@ -31,7 +31,7 @@
         },
         {
             "name": "puppetlabs/firewall",
-            "version_requirement": ">= 1.8.0 < 3.0.0"
+            "version_requirement": ">= 1.8.0 < 4.0.0"
         }
     ]
 }

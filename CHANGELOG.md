@@ -19,6 +19,13 @@ Template
 
 All notable changes to this project (since v2.0.0) will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.5.0] 2021-08-16
+### Added
+- `kerberos::server::master_key_type` parameter
+- `kerberos::server::supported_enctypes` parameter
+### Changed
+- dependency on `puppetlabs/firewall` now allows version 3
+
 ## [2.4.0] 2021-08-13
 ### Added
 - many new parameters for client realms

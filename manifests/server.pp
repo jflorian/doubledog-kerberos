@@ -10,15 +10,17 @@
 # === Copyright
 #
 # This file is part of the doubledog-kerberos Puppet module.
-# Copyright 2012-2019 John Florian
+# Copyright 2012-2021 John Florian
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
 class kerberos::server (
-        String[1]               $kadmin_service,
-        String[1]               $kdc_service,
-        Boolean                 $manage_firewall,
-        Array[String[1], 1]     $packages,
+        String[1]                   $kadmin_service,
+        String[1]                   $kdc_service,
+        Boolean                     $manage_firewall,
+        Optional[String[1]]         $master_key_type,
+        Array[String[1], 1]         $packages,
+        Optional[Array[String[1]]]  $supported_enctypes,
     ) {
 
     include 'kerberos'
